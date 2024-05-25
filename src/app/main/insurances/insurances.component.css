@@ -1,0 +1,43 @@
+.titleTextInsu {
+    transition: box-shadow 0.3s ease; /* Add a smooth transition effect */
+  }
+  .titleTextInsu:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.5); /* Adjust the glow size and color as needed */
+  }
+
+  .star {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.9em;
+    margin-right: 0.9em;
+    margin-bottom: 1.2em;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.7em solid #fc0;
+    border-left: 0.3em solid transparent;
+    font-size: 18px;
+}
+
+.star:before,
+.star:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0.6em;
+    left: -1em;
+    border-right: 1em solid transparent;
+    border-bottom: 0.7em solid #fc0;
+    border-left: 1em solid transparent;
+    transform: rotate(-35deg); 
+  }
+  
+  .star:after {
+    transform: rotate(35deg);
+  }
+  
+  .pricing-card-title{
+    font-size: 2.0rem!important;
+  }

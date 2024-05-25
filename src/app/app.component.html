@@ -1,0 +1,60 @@
+<nav class="fixed-top navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img class="shadow1" src="../assets/Logo.svg" alt="" width="200" height="60">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-navigation rd-navbar-nav fullpage-navigation" style="--bs-scroll-height: 100px;">
+        <li class="navbar-navigation-root-item">
+          <a class="navbar-navigation-root-link" aria-current="page" href="#Home">Home</a>
+        </li>
+        <li class="navbar-navigation-root-item">
+          <a class="navbar-navigation-root-link" href="#Insurance">Nuestras polizas</a>
+        </li>
+        <li class="navbar-navigation-root-item">
+          <a class="navbar-navigation-root-link" href="#faqSection">Preguntas frecuentes</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div data-bs-spy="scroll" data-bs-target="#navbarScroll" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+  tabindex="0">
+
+  <!-- About Section -->
+  <section class="container-fluid p-0" id="Home" style="background-color: #0033a0;">
+    <app-home></app-home>
+  </section>
+
+  <section class="p-0 svgBackGround mb-0" id="Insurance"
+    style="background-color: #0033a0; clip-path: polygon(100% 0%, 0% 0%, 0% 96.39%, 49% 100%, 100% 96.39%);">
+    <app-insurances></app-insurances>
+  </section>
+
+  <div class="modal g-0 p-0 fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content p-0">
+        <div class="modal-body p-0 m-0 g-0">
+          <app-insurance-form></app-insurance-form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <section id="legalInfo">
+  <app-legal-info></app-legal-info>
+</section> -->
+
+  <section id="faqSection" class="m-0 g-0" style="margin: 0px;">
+    <app-faq-section></app-faq-section>
+  </section>
+
+  <router-outlet></router-outlet>
+
+  <script src="../assets/scripts.js"></script>

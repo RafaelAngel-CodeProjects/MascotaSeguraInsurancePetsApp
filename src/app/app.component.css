@@ -1,0 +1,124 @@
+.navbar-navigation-back {
+	display: none;
+}
+
+.navbar-navigation {
+	display: flex;
+	padding: 0;
+	margin: 0 -15px;
+}
+
+.navbar-navigation-root-item {
+	display: flex;
+	align-items: center;
+	padding: 0 15px;
+}
+
+.navbar-navigation-root-item.focus > .navbar-navigation-root-link {
+	color: #0033a0;
+}
+
+.navbar-navigation-root-item.focus > .navbar-navigation-root-link::before {
+	opacity: 1;
+	width: 20px;
+}
+
+.navbar-navigation-root-link {
+	position: relative;
+	display: block;
+	line-height: 1;
+    color: #0033a0;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar-navigation-root-link::before {
+	content: '';
+	position: absolute;
+	top: calc(100% + 5px);
+	left: 0;
+	width: 4px;
+	opacity: 0;
+	height: 4px;
+	border-radius: 4px;
+	pointer-events: none;
+	transition: .2s ease-in-out;
+	background: #ffd600;
+}
+
+.navbar-navigation-root-link:hover {
+	color: #ffd600;
+}
+
+.navbar-navigation-root-link:hover::before {
+	opacity: 1;
+	width: 20px;
+}
+
+.navbar-navigation-root-item.active > .navbar-navigation-root-link {
+	color: #0033a0;
+}
+
+.navbar-navigation-root-item.active > .navbar-navigation-root-link::before {
+	opacity: 1;
+	width: 20px;
+}
+
+.navbar-navigation-dropdown {
+	position: absolute;
+	left: -20px;
+	top: 100%;
+	transform: translate(0, 10%) scale(0.8);
+	z-index: 1;
+	padding: 24px 20px;
+	min-width: 220px;
+	opacity: 0;
+	visibility: hidden;
+	background: transparent;
+	box-shadow: 5px 8px 28px rgba(93, 93, 102, 0.1);
+	transition: .2s;
+}
+
+.navbar-navigation-dropdown-link {
+	position: relative;
+	display: block;
+	padding: 4px 10px;
+	border-radius: 4px;
+	overflow: hidden;
+	color: #fff;
+	transition: .2s;
+}
+
+.navbar-navigation-dropdown-link::before {
+	content: '';
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	transform: translate(-50%, -50%);
+	padding: 0;
+	border-radius: 50%;
+	z-index: -1;
+	background: #393944;
+	transition: padding .05s;
+}
+.navbar-navigation-dropdown-link + .rd-navbar-submenu-toggle {
+	display: block;
+}
+
+.navbar-navigation-dropdown-link:hover {
+	color: #fff;
+}
+
+.navbar-navigation-dropdown-link:hover::before {
+	padding: 110%;
+	transition: padding .25s ease-in;
+}
+
+.navbar-navigation-dropdown-link:hover + .rd-navbar-submenu-toggle {
+	transition: .2s .1s;
+	color: #fff;
+}
+
+.InsurancesvgBackGround{
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1409%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(0%2c 174%2c 199%2c 1)'%3e%3c/rect%3e%3cpath d='M 0%2c125 C 72%2c165.4 216%2c321 360%2c327 C 504%2c333 576%2c133.8 720%2c155 C 864%2c176.2 936%2c452.8 1080%2c433 C 1224%2c413.2 1368%2c131.4 1440%2c56L1440 560L0 560z' fill='%232264ab'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1409'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}

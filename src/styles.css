@@ -1,0 +1,133 @@
+body {
+    height: 100vh;
+}
+
+.animate-charcter {
+	color: #0033a0;
+	color: #ffd600;
+	display: inline-block;
+	font-size: 80px;
+}
+
+@keyframes textclip {
+	to {
+		background-position: 100% center;
+	}
+}
+
+.btn-round.btn-lg,
+.btn-group-lg>.btn-round.btn {
+	border-radius: 3.25rem;
+}
+
+
+.btn-primary {
+	color: #fff;
+	border-color: #0033a0;
+	background-color: #0033a0;
+}
+
+.btn-lg,
+.btn-group-lg>.btn {
+	--bs-btn-padding-y: 0.9375rem;
+	--bs-btn-padding-x: 2.5rem;
+	--bs-btn-font-size: 1rem;
+	--bs-btn-border-radius: 0.3125rem;
+}
+
+.btn-anis:hover {
+	transition: all .25s, border-color .3s .5s, background-color .3s .5s;
+}
+
+.btn-primary:hover,
+.btn-primary.hover,
+.btn-primary:active,
+.btn-primary.active {
+	color: #0033a0;
+	border-color: #ffd600;
+	background-color: #ffd600;
+}
+
+.btn-anis {
+	transform: translateZ(0);
+	overflow: hidden;
+	transition: .25s;
+}
+
+.btn-anis::before,
+.btn-anis::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	z-index: -1;
+	padding: 10px;
+	border-radius: 50%;
+	opacity: 1;
+	transition: 0s;
+	will-change: transform;
+}
+
+.btn-anis::before {
+	left: -30%;
+	transform: translate(-50%, -50%);
+}
+
+.btn-anis::after {
+	right: -30%;
+	transform: translate(50%, -50%);
+}
+
+.btn-anis:hover {
+	transition: all .25s, border-color .3s .5s, background-color .3s .5s;
+}
+
+.btn-anis:hover::before,
+.btn-anis:hover::after {
+	padding: 50%;
+	opacity: 0;
+	transition: left .4s, right .4s, padding .3s .5s, opacity .05s .75s;
+}
+
+.btn-anis:hover::before {
+	left: 50%;
+}
+
+.btn-anis:hover::after {
+	right: 50%;
+}
+
+.btn-anis.btn-outline:hover {
+	transition: all .25s, background-color .1s .7s, color .3s .5s;
+}
+
+.btn-anis.btn-outline::before,
+.btn-anis.btn-outline::after {
+	background-color: #fff;
+}
+
+.btn-primary.btn-anis::before,
+.btn-primary.btn-anis::after {
+	background-color: #ffd600;
+}
+
+.btn-primary.btn-anis.btn-outline::before,
+.btn-primary.btn-anis.btn-outline::after {
+	background-color: #ffd600;
+}
+
+.btn-secondary.btn-anis::before,
+.btn-secondary.btn-anis::after {
+	background-color: #e8c304;
+}
+
+.btn-secondary.btn-anis.btn-outline::before,
+.btn-secondary.btn-anis.btn-outline::after {
+	background-color: #FFD600;
+}
+
+.neu {
+	border-radius: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #0033a0;
+}

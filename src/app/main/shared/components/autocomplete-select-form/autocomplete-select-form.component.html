@@ -1,0 +1,7 @@
+<div [formGroup]="applyForm">
+    <label for="controlName">{{label}}</label>
+    <input type="text" class="form-control" id="controlName" formControlName="controlName" [ngbTypeahead]="search"
+    (focus)="focus$.next($any($event).target.value)" (click)="click$.next($any($event).target.value)"
+    #instance="ngbTypeahead" />
+</div>
+

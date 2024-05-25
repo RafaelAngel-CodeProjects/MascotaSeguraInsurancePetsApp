@@ -1,0 +1,487 @@
+<div class="container-fluid" style="background-color:#b0c1e5;">
+    <div class="container-fluid w-100 g-0">
+        <div class="container-fluid mt-5 p-1 text-white text-center">
+        </div>
+        <div class="container text-white w-75">
+            <div class="row" style=" display: flex;
+            justify-content: center;">
+                <div class="col-sm-12 col-md-12 mb-2">
+                    <form [formGroup]="applyForm" class="w-100" (submit)="submitFormPets()">
+                        <div
+                        *ngIf="
+                            applyForm.errors?.['nombreMascota']
+                        "
+                        class="cross-validation-error-message alert alert-danger"
+                        >
+                        Name cannot match alter ego.
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 1"
+                                        *ngIf="currentStep==1">
+                                        <h6 class="text-white font-weight-bold title-tab">Bienvenido</h6>
+                                    </div> 
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 2"
+                                        *ngIf="currentStep==2">
+                                        <h6 class="text-white font-weight-bold title-tab">Puedes Indicarnos el Tipo de Mascota que tienes?</h6>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 3"
+                                    *ngIf="currentStep==3">
+                                    <h6 class="text-white font-weight-bold title-tab">Queremos Saber mas sobre tu mascota.</h6>
+                                </div> 
+                                <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 4"
+                                        *ngIf="currentStep==4">
+                                        <h6 class="text-white font-weight-bold title-tab">Solo un par de datos mas y finalizaremos.</h6>
+                                    </div> 
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 5"
+                                        *ngIf="currentStep==5">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos del Asegurado</h6>
+                                    </div>
+                                    <!-- <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 6"
+                                        *ngIf="currentStep==6">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos de Cuenta Habiente</h6>
+                                    </div> -->
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 7"
+                                        *ngIf="currentStep==7">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos de Poliza</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 1"
+                                        *ngIf="currentStep==1">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos de la Mascota</h6>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 2"
+                                        *ngIf="currentStep==2">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos del Asegurado</h6>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 3"
+                                        *ngIf="currentStep==3">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos de Cuenta Habiente</h6>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 activeTab" [class.active]="currentStep === 4"
+                                        *ngIf="currentStep==4">
+                                        <h6 class="text-white font-weight-bold title-tab">Datos de Poliza</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="row mb-3 mt-2">
+                            <div class="col-sm-12 col-md-6 contentTab w-100 fade-in-text" [class.active]="currentStep === 1">
+                                <div class="row">
+                                    <h5>Hola Muchas gracias por adquirir nuestro Producto Poliza</h5> 
+                                    <div class="container-text">
+                                        <h5 class="an-1">Plan Basico</h5>
+                                      </div>  
+                                    <h5>Para la generacion de tu poliza es necesario que nos indiques algunos datos a continuacion</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="textC">
+                                        <p>
+                                          <span class="word wisteria">Hola Muchas gracias por adquirir nuestro Producto Poliza</span>
+                                          <span class="word belize"> "" Para la generacion de tu poliza es necesario</span>
+                                          <span class="word pomegranate"> que nos indiques.</span>
+                                          <span class="word green">algunos datos a continuacion.</span>
+                                          <span class="word midnight">Sera Facil.</span>
+                                        </p>
+                                      </div>
+                                      
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 contentTab w-100 fade-in-text" [class.active]="currentStep === 2">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="row h-100">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-sm-12 col-md-10 bgImage"
+                                                [class.active]="(applyForm.get('tipoMascota')?.value)">
+                                                <div class="switch_box box_1">
+                                                    <input class="form-control" formControlName="tipoMascota"
+                                                        type="checkbox" class="switch_1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 contentTab w-100 fade-in-text" [class.active]="currentStep === 3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="row w-100">
+                                            <div class="col-sm-6 col-md-6">
+                                                <label class="mb-1" for="nombreMascota">Nombre de la mascota</label>
+                                                <input type="text" class="form-control w-100" id="nombreMascota"
+                                                    formControlName="nombreMascota" />
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <label class="mb-1" for="pets">Raza</label>
+                                                <input type="text" id="pets" class="form-control"
+                                                    formControlName="petBreed" [ngbTypeahead]="searchPetBreed"
+                                                    (focus)="focusRaza$.next($any($event).target.value)"
+                                                    (click)="clickRaza$.next($any($event).target.value)"
+                                                    #instanceRaza="ngbTypeahead" />
+                                            </div>
+                                        </div>
+                                        <div class="row w-100 mt-1">
+                                            <div class="col-sm-6 col-md-6">
+                                                <label class="mb-1" for="fechaNacimientoMascota">Fecha de
+                                                    Nacimiento</label>
+                                                <input type="date" class="form-control"
+                                                    formControlName="fechaNacimientoMascota"
+                                                    id="fechaNacimientoMascota">
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <label class="mb-1" for="generoMascota">Sexo</label>
+                                                <select id="generoMascota" formControlName="generoMascota"
+                                                    class="form-control">
+                                                    <option value="" disabled="">Seleccione</option>
+                                                    <option value="Macho">Macho</option>
+                                                    <option value="Hembra">Hembra</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 col-md-12">
+                                                <label class="mb-1" for="planMascota">Plan Mascota</label>
+                                                <select id="planMascota" formControlName="planMascota"
+                                                    class="form-control">
+                                                    <option value="" disabled="">Seleccione</option>
+                                                    <option value="Plan Mascotas Básico Semestral">Plan Mascotas Básico Semestral</option>
+                                                    <option value="Plan Mascotas Clasico Semestral">Plan Mascotas Clasico Semestral </option>
+                                                    <option value="Plan Mascotas Global Semestral">Plan Mascotas Global Semestral</option>
+                                                    <option value="Plan Mascotas Tradicional Full Semestral">Plan Mascotas Tradicional Full Semestral</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-sm-12 col-md-6 contentTab w-100 fade-in-text" [class.active]="currentStep === 5">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 p-1">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="tipoDocumentoAsegurado">Tipo de Documento</label>
+                                                <select id="tipoDocumentoAsegurado"
+                                                    formControlName="tipoDocumentoAsegurado" class="form-control">
+                                                    <option selected>Seleccionar...</option>
+                                                    <option>DNI</option>
+                                                    <option>Pasaporte</option>
+                                                    <option>CEDULA</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="numeroDocumentoAsegurado">Número de Documento</label>
+                                                <input type="text" class="form-control"
+                                                    formControlName="numeroDocumentoAsegurado"
+                                                    id="numeroDocumentoAsegurado" placeholder="Número de Documento">
+                                            </div>
+                                            <div class="form-group col-sm-12 col-md-4">
+                                                <label class="mb-1" for="genero">Genero</label>
+                                                <select id="genero" formControlName="genero" class="form-control">
+                                                    <option value="" disabled="">Seleccione</option>
+                                                    <option value="Masculino">Masculino</option>
+                                                    <option value="Femenino">Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="primerNombreAsegurado">Nombre</label>
+                                                <input type="text" class="form-control" id="primerNombreAsegurado"
+                                                    formControlName="primerNombreAsegurado" placeholder="Nombre">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="primerApellidoAsegurado">Apellido</label>
+                                                <input type="text" class="form-control" id="primerApellidoAsegurado"
+                                                    formControlName="primerApellidoAsegurado" placeholder="Apellido">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="correoAsegurado">Correo Electronico</label>
+                                                <input type="email" class="form-control" id="correoAsegurado"
+                                                    formControlName="correoAsegurado">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="telefonoAsegurado">Telefono</label>
+                                                <input type="tel" class="form-control" id="telefonoAsegurado"
+                                                    formControlName="telefonoAsegurado">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="celularAsegurado">Celular</label>
+                                                <input type="tel" class="form-control" id="celularAsegurado"
+                                                    formControlName="celularAsegurado">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="row">
+                                                    <div class="form-group col-md-12">
+                                                        <label for="fechaNacimientoAsegurado">Fecha de
+                                                            Nacimiento</label>
+                                                        <input type="date" class="form-control"
+                                                            formControlName="fechaNacimientoAsegurado"
+                                                            id="fechaNacimientoAsegurado">
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label class="mb-1" for="ciudadAsegurado">Ciudad</label>
+                                                        <input type="text" id="ciudadAsegurado"
+                                                            formControlName="ciudadAsegurado" class="form-control"
+                                                            [ngbTypeahead]="searchCity"
+                                                            (focus)="focusCity$.next($any($event).target.value)"
+                                                            (click)="clickCity$.next($any($event).target.value)"
+                                                            #instanceCity="ngbTypeahead" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        ¿Autoriza usted el envio de notificaciones a traves de SMS a su
+                                                        numero
+                                                        personal?
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="switch_box box_1">
+                                                            <input formControlName="autorizaEnvioSMS"
+                                                                class="form-control" type="checkbox" class="switch_1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        ¿Autoriza usted el envio de notificacion e informacion a su
+                                                        cuenta de
+                                                        correo
+                                                        personal?
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="switch_box box_1">
+                                                            <input formControlName="autorizaEnvioCorreo"
+                                                                class="form-control" type="checkbox" class="switch_1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-10">
+                                                        ¿Autoriza usted el tratamiento de los datos suministrados en
+                                                        este
+                                                        formulario para su
+                                                        procesamiento
+                                                        y generacion de esta solicitud?
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="switch_box box_1">
+                                                            <input formControlName="autorizaTratamientoDatos"
+                                                                class="form-control" type="checkbox" class="switch_1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="direccionAsegurado">Dirección</label>
+                                                <input type="text" class="form-control" id="direccionAsegurado"
+                                                    formControlName="direccionAsegurado" placeholder="Dirección">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-12 col-md-6 contentTab w-100 fade-in-text" [class.active]="currentStep === 6">
+                                <div class="form-row">
+                                    <div class="form-group col-sm-12 col-md-6">
+                                        <label for="tipoDocumentoCuentahabiente">Tipo de Documento</label>
+                                        <select id="tipoDocumentoCuentahabiente"
+                                            formControlName="tipoDocumentoCuentahabiente" class="form-control">
+                                            <option selected>Seleccionar...</option>
+                                            <option>DNI</option>
+                                            <option>Pasaporte</option>
+                                            <option>CEDULA</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-6">
+                                        <label for="numeroDocumentoCuentahabiente">Número de Documento</label>
+                                        <input type="text" class="form-control"
+                                            formControlName="numeroDocumentoCuentahabiente"
+                                            id="numeroDocumentoCuentahabiente" placeholder="Número de Documento">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="primerNombreCuentahabiente">Nombre</label>
+                                        <input type="text" class="form-control"
+                                            formControlName="primerNombreCuentahabiente" id="primerNombreCuentahabiente"
+                                            placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="segundoNombreCuentahabiente">Segundo Nombre</label>
+                                        <input type="text" class="form-control"
+                                            cformControlName="segundoNombreCuentahabiente"
+                                            id="segundoNombreCuentahabiente" placeholder="Apellido">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="primerApellidoCuentahabiente">Apellido</label>
+                                        <input type="text" class="form-control"
+                                            formControlName="primerApellidoCuentahabiente"
+                                            id="primerApellidoCuentahabiente" placeholder="Apellido">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Segundo Apellido</label>
+                                        <input type="text" class="form-control"
+                                            formControlName="segundoApellidoCuentahabiente"
+                                            id="segundoApellidoCuentahabiente" placeholder="Segundo Apellido">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-sm-12 col-md-6 contentTab w-100 fade-in-text" [class.active]="currentStep === 7">
+                                <div class="form-row">
+                                    <div class="form-group col-sm-12 col-md-6">
+                                        <label class="mb-1" for="formaPago">Forma de pago</label>
+                                        <select id="formaPago" formControlName="formaPago" class="form-control">
+                                            <option value="" disabled="">Seleccione</option>
+                                            <!-- <option value="Anual">Anual</option> -->
+                                            <option value="Semestral">Semestral</option>
+                                            <option value="Mensual">Mensual</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div class="form-group col-sm-12 col-md-6">
+                                        <label class="mb-1" for="petSex">Medio de pago</label>
+                                        <select id="medioPago" formControlName="medioPago" class="form-control">
+                                            <option value="" disabled="">Seleccione</option>
+                                            <option value="Efectivo">Efectivo</option>
+                                            <option value="Debito Automatico">Debito Automatico</option>
+                                        </select>
+                                    </div> -->
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-12 col-md-6">
+                                        <label class="mb-1" for="banco">Banco</label>
+                                        <select id="banco" formControlName="banco" class="form-control">
+                                            <option value="BANCO BANCOLOMBIA">BANCO BANCOLOMBIA</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div class="form-group col-sm-12 col-md-6">
+                                        <label class="mb-1" for="tipoCuenta">Tipo cuenta</label>
+                                        <select id="tipoCuenta" formControlName="tipoCuenta" class="form-control">
+                                            <option value="" disabled="">Seleccione</option>
+                                            <option value="81886">81886</option>
+                                            <option value="66665">66665</option>
+                                            <option value="78846">78846</option>
+                                            <option value="79734">79734</option>
+                                            <option value="Efectivo">Efectivo</option>
+                                            <option value="Corriente">Corriente</option>
+                                            <option value="Ahorros">Ahorros</option>
+                                        </select>
+                                    </div> -->
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="numeroCuenta">Numero cuenta</label>
+                                        <input type="text" formControlName="numeroCuenta" class="form-control"
+                                            id="numeroCuenta">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="numeroCuentaConfirmacion">Confirmacion numero cuenta</label>
+                                        <input type="text" formControlName="numeroCuentaConfirmacion"
+                                            class="form-control" id="numeroCuentaConfirmacion">
+                                    </div>
+                                </div>
+                                <!-- <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="codigoVendedor">Codigo Vendedor</label>
+                                        <input type="text" formControlName="codigoVendedor" class="form-control"
+                                            id="codigoVendedor">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="codigoVendedorConfirmacionr">Confirmacion Codigo Vendedor</label>
+                                        <input type="text" class="form-control"
+                                            formControlName="codigoVendedorConfirmacionr"
+                                            id="codigoVendedorConfirmacionr">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="mb-1" for="fechaInicioVigencia">Fecha Inicio Vigencia</label>
+                                        <input type="date" class="form-control" formControlName="fechaInicioVigencia"
+                                            id="fechaInicioVigencia">
+                                    </div>
+                                </div> -->
+                                <!-- <div class="row" *ngIf="errorResponse.length>0">
+                                    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                        <div class="card-header">Header</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Danger card title</h5>
+                                            <ul>
+                                                <div *ngFor="let item of errorResponse">
+                                                    <li class="card-text">{{ item[0].error }}</li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="row h-100" *ngIf="errorResponse.length==0">
+                                    <div class="col-md-12 align-items-center">
+                                        <div class="col-md-12 bg-white text-black w-100 offer-radius">
+                                            <div class="offer offer-radius offer-primary">
+                                                <div class="shape">
+                                                    <div class="shape-text">
+                                                        Top
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="offer-content col-md-12">
+                                                        <div class=" ">
+                                                            <p *ngIf="errorResponse.length>0" class="mb-2"></p>
+                                                            <p class="mb-2" style="margin-bottom: 5px;">Por un
+                                                                <strong>unico</strong> pago al <strong>Año</strong> de:
+                                                            </p>
+                                                            <br>
+                                                            <h3 class="display-2 mt-2"><span
+                                                                    class="currency">COP$</span>341.000<span
+                                                                    class="period">/Año*</span></h3>
+                                                            <p class="text-shadow gray">Equivale a <strong>COP$
+                                                                    28.416</strong>
+                                                                mensual</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-sm-12 modal-footer text-lg-end">
+                                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                                <div class="col float-start text-lg-start" style="color: #7b0a55; font-weight: bolder;"
+                                    *ngIf="currentStep>1">
+                                    PREV <a href="#" type="button" class="next round rounded-circle"
+                                        (click)="setCurrentStep(currentStep-1)">
+                                        < </a>
+                                </div>
+                                <div class="col float-end" style="color: #7b0a55; font-weight: bolder;"
+                                    *ngIf="currentStep<7">
+                                    SIG <a href="#" type="button" class="next round rounded-circle"
+                                        (click)="setCurrentStep(currentStep+1)">></a>
+                                </div>
+                                <div class="col text-lg-end float-end" style="color: #dfe324; font-weight: bolder;"
+                                    *ngIf="currentStep==7">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #dfe324;"
+                                        (click)="submitFormPets()">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
