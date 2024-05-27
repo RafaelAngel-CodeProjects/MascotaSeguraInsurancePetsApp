@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild,PLATFORM_ID, Inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule,isPlatformBrowser } from '@angular/common';
 import { Observable, BehaviorSubject, Subscription, OperatorFunction, Subject, debounceTime, distinctUntilChanged, filter, map, merge } from 'rxjs';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { InsuranceService } from '../shared/services/insurance.service';
@@ -28,7 +28,7 @@ export class InsuranceFormComponent implements AfterViewInit {
   cities: string[] = [];
   errorResponse: any[] = [];
 
-  constructor(private insuranceService: InsuranceService) {
+  constructor(private insuranceService: InsuranceService, @Inject(PLATFORM_ID) private platformId: Object) {
 
     this.applyForm = new FormGroup({
       tipoMascota: new FormControl(''),
@@ -70,36 +70,64 @@ export class InsuranceFormComponent implements AfterViewInit {
   }
 
 
+  // ngAfterViewInit(): void {
+   
+  //   // Wrap every letter in a span
+  //   let textWrapper;
+  //   if (document) {
+  //     textWrapper = document.querySelector('.an-1');
+  //   }
+  //   if (textWrapper && textWrapper.textContent) {
+  //     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+  //   }
+
+  //   anime.timeline({ loop: true })
+  //     .add({
+  //       targets: '.an-1 .letter',
+  //       scale: [1, 1],
+  //       opacity: [0, 1],
+  //       translateZ: 0,
+  //       easing: "easeInQuad",
+  //       duration: 950,
+  //       delay: (el: any, i: number) => 70 * i
+  //     }).add({
+  //       targets: '.an-1',
+  //       opacity: 0,
+  //       duration: 1000,
+  //       easing: "easeInQuad",
+  //       delay: 1000
+  //     });
+
+
+  // }
+
   ngAfterViewInit(): void {
-    // Wrap every letter in a span
-    let textWrapper;
-    if (document){
-      textWrapper = document.querySelector('.an-1');
+    if (isPlatformBrowser(this.platformId)) {
+      // Only execute this code in the browser context
+      const textWrapper = document.querySelector('.an-1');
+      if (textWrapper && textWrapper.textContent) {
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+      }
+
+      anime.timeline({ loop: true })
+        .add({
+          targets: '.an-1 .letter',
+          scale: [1, 1],
+          opacity: [0, 1],
+          translateZ: 0,
+          easing: "easeInQuad",
+          duration: 950,
+          delay: (el: any, i: number) => 70 * i
+        }).add({
+          targets: '.an-1',
+          opacity: 0,
+          duration: 1000,
+          easing: "easeInQuad",
+          delay: 1000
+        });
     }
-if (textWrapper && textWrapper.textContent) {
-  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-}
-
-anime.timeline({loop: true})
-.add({
-  targets: '.an-1 .letter',
-  scale: [1,1],
-  opacity: [0,1],
-  translateZ: 0,
-  easing: "easeInQuad",
-  duration: 950,
-  delay: (el:any, i: number) => 70*i
-}).add({
-  targets: '.an-1',
-  opacity: 0,
-  duration: 1000,
-  easing: "easeInQuad",
-  delay: 1000
-});
-
-
-}
-
+  }
+  
   getData(requestBody: Catalogo, data: string[]) {
     this.insuranceService.getData(requestBody).subscribe(bpet => {
       switch (requestBody.campo) {
